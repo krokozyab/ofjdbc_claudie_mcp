@@ -20,7 +20,7 @@ Your sensitive data remains completely secure as Claude only sees database struc
 ### How It Works
 
 1. **Data Collection**: While you write SELECT statements in DBeaver, OFJDBC automatically saves metadata about accessed tables and views to a local DuckDB database
-2. **Local Storage**: The metadata file is stored in your user folder at `.oflight/metadata.db` (ensuring complete privacy)
+2. **Local Storage**: The metadata file is stored in your user folder at `.ofjdbc/metadata.db` (ensuring complete privacy)
 3. **Intelligent Context**: This MCP server feeds that metadata directly into Claude AI, providing context-aware assistance
 4. **Progressive Learning**: The system builds knowledge incrementally as you explore your database
 
