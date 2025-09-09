@@ -28,10 +28,14 @@ Your sensitive data remains completely secure as Claude only sees database struc
 
 - **Initial Setup**: Only table names and descriptions are saved when you first use OFJDBC in DBeaver
 - **Column Information**: Table columns are saved only when you:
-    - Write SELECT statements using those tables
-    - Manually open tables in the database explorer (left pane)
+   - Write SELECT statements using those tables
+   - Manually open tables in the database explorer (left pane)
 - **Index Information**: Index details are saved only when you open them in the database explorer
 - **Scope**: Claude AI can only access locally stored metadata
+
+### See It In Action
+
+🎥 **Quick Demo**: Watch a [short video demonstration](https://www.youtube.com/watch?v=acgyR3kB6s8) to see the OFJDBC Claude MCP server in action.
 
 ## Prerequisites
 
@@ -44,10 +48,10 @@ Your sensitive data remains completely secure as Claude only sees database struc
 
 1. **Download Required Files**
 
-   Download the following files from the GitHub Windows release to a designated folder on your PC:
-    - `ofmcp.exe`
-    - `db_worker_safe.exe`
-    - `libduckdb.dll`
+   Download the following files from the [GitHub Windows release](https://github.com/krokozyab/ofjdbc_claudie_mcp/releases/tag/Windows) to a designated folder on your PC:
+   - `ofmcp.exe`
+   - `db_worker_safe.exe`
+   - `libduckdb.dll`
 
 2. **Open Claude Desktop**
 
@@ -96,10 +100,10 @@ Your sensitive data remains completely secure as Claude only sees database struc
 
 1. **Download Required Files**
 
-   Download the following files from the GitHub macOS release to a designated folder on your Mac:
-    - `ofmcp`
-    - `ofmcp.sh`
-    - `libduckdb.dylib`
+   Download the following files from the [GitHub macOS release](https://github.com/krokozyab/ofjdbc_claudie_mcp/releases/tag/MacOS) to a designated folder on your Mac:
+   - `ofmcp`
+   - `ofmcp.sh`
+   - `libduckdb.dylib`
 
 2. **Make Files Executable**
 
