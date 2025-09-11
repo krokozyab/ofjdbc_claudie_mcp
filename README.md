@@ -197,6 +197,250 @@ Once installed, Claude AI will have access to your Oracle Fusion metadata and ca
 
 The more you use OFJDBC in DBeaver, the more comprehensive Claude's knowledge of your database becomes.
 
+## 🎯 Optimal Prompting Guide
+
+This guide shows you how to effectively use each MCP tool with Claude to get the most accurate and helpful responses.
+
+### 📋 Available Tools Overview
+
+| Tool                 | Purpose                        | Best Use Cases                                  |
+|----------------------|--------------------------------|-------------------------------------------------|
+| `list_tables`        | Browse database structure      | Discovery, exploration, finding relevant tables |
+| `list_columns`       | Examine table schemas          | Understanding data structure, planning queries  |
+| `search_identifiers` | Find specific database objects | Searching for tables/columns by name patterns   |
+| `index_info`         | View table indexes             | Performance optimization, query planning        |
+| `raw_select`         | Execute SELECT queries         | Data analysis, validation, exploration          |
+| `lint_sql`           | Validate SQL syntax            | Code quality, error prevention                  |
+| `fix_sql`            | Auto-correct SQL issues        | Quick debugging, syntax repair                  |
+| `suggest_sql`        | Get SQL completion suggestions | Writing assistance, best practices              |
+
+---
+
+### 🔍 Discovery & Exploration
+
+#### Finding Relevant Tables
+
+**❌ Ineffective prompting:**
+> "Show me all tables"
+
+**✅ Better prompting:**
+> "I need to analyze customer data. Can you list tables that might contain customer information? Look for tables with 'CUSTOMER', 'CLIENT', or 'USER' in their names, and show me the first 10 with their descriptions."
+
+**✅ Even better - specific business context:**
+> "I'm working on a sales report. Please find tables related to sales transactions, customer orders, or revenue. Focus on tables from the FUSION schema and limit to 15 results."
+
+#### Understanding Table Structure
+
+**❌ Ineffective:**
+> "What columns does this table have?"
+
+**✅ Better:**
+> "I need to understand the PO_HEADERS_ALL table structure. Show me all columns with their data types, and highlight any that seem to be foreign keys or dates."
+
+**✅ Contextual approach:**
+> "For building a purchase order analysis, show me the columns in PO_HEADERS_ALL. I'm particularly interested in date fields, amount fields, and any status indicators."
+
+---
+
+### 🔎 Targeted Search Strategies
+
+#### Using search_identifiers Effectively
+
+**❌ Too broad:**
+> "Find anything with 'order'"
+
+**✅ Strategic search:**
+> "Search for database objects containing 'invoice' - I need to find all invoice-related tables and columns for an accounts receivable analysis."
+
+**✅ Multi-step discovery:**
+> "First, search for 'GL_' objects to find General Ledger tables, then search for 'ACCOUNT' to find accounting-related objects. I'm building a financial reporting solution."
+
+#### Pattern-Based Discovery
+
+**✅ Effective patterns:**
+```
+"Search for identifiers matching these patterns:
+- 'AP_' for Accounts Payable objects
+- 'AR_' for Accounts Receivable objects
+- 'INVOICE' for invoice-related tables
+Limit results to 20 most relevant matches."
+```
+
+---
+
+### 📊 Data Analysis & Queries
+
+#### Planning Queries with Metadata
+
+**✅ Comprehensive approach:**
+> "I want to analyze customer purchase patterns. First, help me find customer and order tables, then show me their relationships through foreign keys. Finally, suggest a query to get top customers by purchase volume."
+
+#### Smart Query Building
+
+**❌ Direct query without context:**
+> "Write a query for sales data"
+
+**✅ Metadata-driven approach:**
+> "I need sales data for Q4 2024. Can you:
+> 1. Find tables containing sales/order information
+> 2. Show me the date and amount columns available
+> 3. Check for any indexes on date fields
+> 4. Then write an optimized query for Q4 sales totals by month"
+
+#### Query Validation Workflow
+
+**✅ Best practice sequence:**
+```
+1. "Here's my query: [SQL]. Please lint it to check for syntax issues."
+2. "If there are issues, use fix_sql to correct them."
+3. "Then execute the corrected query with raw_select."
+4. "Finally, suggest any optimizations based on the available indexes."
+```
+
+---
+
+### 🔧 SQL Quality & Validation
+
+#### SQL Linting
+
+**✅ Proactive validation:**
+> "Before I run this complex query, can you lint it to check for any syntax errors or potential issues: [YOUR_SQL_QUERY]"
+
+**✅ Learning-focused approach:**
+> "I'm learning Oracle SQL syntax. Please lint this query and explain any issues you find: SELECT * FROM po_headers WHERE creation_date > '2024-01-01'"
+
+#### SQL Fixing
+
+**✅ Auto-correction with explanation:**
+> "This query is giving me syntax errors: [BROKEN_SQL]. Please use fix_sql to correct it and explain what was wrong."
+
+**✅ Best practices enhancement:**
+> "Fix this query and suggest improvements for better performance: SELECT * FROM large_table WHERE some_column LIKE '%search%'"
+
+#### SQL Suggestions
+
+**✅ Completion assistance:**
+> "I'm writing a query to find customers with overdue invoices. I have 'SELECT c.customer_name FROM hz_customers c WHERE'. Can you suggest how to complete this with proper joins and conditions?"
+
+**✅ Optimization guidance:**
+> "Suggest improvements for this query to make it more efficient and follow Oracle best practices: [YOUR_QUERY]"
+
+---
+
+### 🎯 Schema-Specific Prompting
+
+#### Oracle Fusion Context
+
+**✅ Leverage business knowledge:**
+> "I'm analyzing the Order-to-Cash process in Oracle Fusion. Find tables related to:
+> - Sales orders (OM_ prefix)
+> - Accounts receivable (RA_, AR_ prefixes)
+> - Customer data (HZ_ prefix)
+    > Show relationships between these table groups."
+
+#### Multi-Schema Analysis
+
+**✅ Organized exploration:**
+> "Compare the table structures between FUSION and APPS schemas for supplier data. Look for tables with 'SUPPLIER' or 'VENDOR' in their names, and highlight any differences in column structures."
+
+---
+
+### 🚀 Performance-Focused Prompting
+
+#### Index-Aware Query Design
+
+**✅ Performance-conscious approach:**
+> "I need to query large transaction tables. First show me the indexes available on AP_INVOICES_ALL, then suggest an optimized query to find invoices from the last 30 days, using the best available index."
+
+#### Efficient Data Exploration
+
+**✅ Size-aware discovery:**
+> "Find the largest tables in the database (by estimated row count from metadata), then show me their key columns and indexes. I need to design efficient queries for reporting."
+
+---
+
+### 🔧 Advanced Techniques
+
+#### Combining Multiple Tools
+
+**✅ Workflow-based prompting:**
+> "I'm designing a financial dashboard. Please:
+> 1. Search for GL (General Ledger) related tables
+> 2. Show detailed columns for the 3 most relevant GL tables
+> 3. Check available indexes for query optimization
+> 4. Suggest efficient queries for account balance summaries
+> 5. Lint and optimize the final queries"
+
+#### Business Process Mapping
+
+**✅ Process-oriented discovery:**
+> "Map the Procure-to-Pay process tables:
+> 1. Find purchase requisition tables (PO_REQUISITION%)
+> 2. Find purchase order tables (PO_HEADERS%, PO_LINES%)
+> 3. Find invoice tables (AP_INVOICES%, AP_INVOICE_LINES%)
+> 4. Find payment tables (AP_CHECKS%, IBY_PAYMENTS%)
+     > Show the relationships between these table groups."
+
+---
+
+### 💡 Pro Tips for Better Results
+
+#### 1. **Be Specific About Your Goal**
+Instead of: *"Show me customer data"*
+Use: *"I need customer data for churn analysis - find tables with customer demographics, transaction history, and account status information."*
+
+#### 2. **Leverage Business Context**
+Instead of: *"Find order tables"*
+Use: *"I'm analyzing the Order-to-Cash cycle - find tables for sales orders, fulfillment, invoicing, and collections."*
+
+#### 3. **Use Iterative Discovery**
+```
+Step 1: "Search for 'CUSTOMER' objects to find customer-related tables"
+Step 2: "Show me detailed columns for HZ_CUSTOMERS - focus on date fields and status indicators"
+Step 3: "What indexes are available on HZ_CUSTOMERS for customer_id and creation_date?"
+Step 4: "Write an optimized query to find customers created in the last quarter"
+```
+
+#### 4. **Combine Schema Knowledge with Tools**
+> "I know Oracle Fusion uses HZ_ prefix for customer data, RA_ for receivables, and PO_ for purchasing. Find the main tables for each of these modules and show their relationships."
+
+#### 5. **Ask for Explanations**
+> "After showing me the table structure, explain what each key column represents in the business context and suggest what kinds of analyses would be most valuable."
+
+---
+
+### 🎨 Prompting Templates
+
+#### Discovery Template
+```
+"I'm working on [BUSINESS_OBJECTIVE].
+Please find tables related to [FUNCTIONAL_AREA] by:
+1. Searching for objects containing '[KEY_TERMS]'
+2. Showing detailed structure of the top [N] most relevant tables
+3. Highlighting [SPECIFIC_COLUMN_TYPES] columns
+4. Suggesting relationships between these tables"
+```
+
+#### Analysis Template
+```
+"For [ANALYSIS_TYPE], I need to:
+1. Find tables containing [DATA_TYPES]
+2. Check available indexes for performance
+3. Build an optimized query for [SPECIFIC_REQUIREMENT]
+4. Validate and fix any SQL issues
+5. Execute and verify the results"
+```
+
+#### Exploration Template
+```
+"Help me understand the [BUSINESS_PROCESS] in this database:
+1. Map the main tables involved in this process
+2. Show the data flow between these tables
+3. Identify key metrics I can extract
+4. Suggest efficient queries for common reporting needs"
+```
+
+
 ## Support
 
 For issues related to:
