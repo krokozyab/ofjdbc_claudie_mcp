@@ -293,8 +293,7 @@ Limit results to 20 most relevant matches."
 ```
 1. "Here's my query: [SQL]. Please lint it to check for syntax issues."
 2. "If there are issues, use fix_sql to correct them."
-3. "Then execute the corrected query with raw_select."
-4. "Finally, suggest any optimizations based on the available indexes."
+3. "Finally, suggest any optimizations based on the available indexes."
 ```
 
 ---
@@ -428,7 +427,6 @@ Please find tables related to [FUNCTIONAL_AREA] by:
 2. Check available indexes for performance
 3. Build an optimized query for [SPECIFIC_REQUIREMENT]
 4. Validate and fix any SQL issues
-5. Execute and verify the results"
 ```
 
 #### Exploration Template
