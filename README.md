@@ -202,33 +202,18 @@ The more you use OFJDBC in DBeaver, the more comprehensive Claude's knowledge of
 This guide shows you how to effectively use each MCP tool with Claude to get the most accurate and helpful responses.
 
 ### 📋 Available Tools Overview
-
-| Tool                | Purpose                        | Best Use Cases                                    | Key
-  Features                                        |
-  |---------------------|--------------------------------|---------------------------------------------------|------------
-  -----------------------------------------|
-  | list_tables         | Browse database structure      | Discovery, exploration, finding relevant tables   | Schema
-  filtering, pagination, type information      |
-  | list_columns        | Examine table schemas          | Understanding data structure, planning queries    | Data types,
-   nullability, defaults, comments         |
-  | index_info          | View table indexes             | Performance optimization, query planning          | Index
-  types, uniqueness, column coverage            |
-  | search_identifiers  | Smart fuzzy search             | Find tables/columns with typos/abbreviations      | Handles
-  misspellings, abbreviations, AI-powered     |
-  | semantic_search     | 🎯 Business concept search     | Find tables by business terms (invoice, customer) |
-  Process-aware, Oracle Fusion business logic         |
-  | search_descriptions | Full-text description search   | Find tables by purpose/functionality in REMARKS   | Searches
-  comments, supports exact phrases           |
-  | raw_select          | Execute SELECT queries         | Data analysis, validation, exploration            | Auto-fixes 
-  common column errors (owner→TABLE_SCHEM) |
-  | lint_sql            | Validate SQL syntax            | Code quality, error prevention                    | Oracle
-  Fusion specific validation                   |
-  | fix_sql             | Auto-correct SQL issues        | Quick debugging, syntax repair                    | Intelligent
-   SQL corrections                         |
-  | suggest_sql         | Get SQL completion suggestions | Writing assistance, best practices                |
-  Context-aware completions 
-
-
+| Tool                 | Purpose                        | Best Use Cases                                  |
+|----------------------|--------------------------------|-------------------------------------------------|
+| `list_tables`        | Browse database structure      | Discovery, exploration, finding relevant tables |
+| `list_columns`       | Examine table schemas          | Understanding data structure, planning queries  |
+| `search_identifiers` | Smart fuzzy search             | Find tables/columns with typos/abbreviations    |
+| `index_info`         | View table indexes             | Performance optimization, query planning        |
+| `raw_select`         | Execute SELECT queries         | Data analysis, validation, exploration          |
+| `lint_sql`           | Validate SQL syntax            | Code quality, error prevention                  |
+| `fix_sql`            | Auto-correct SQL issues        | Quick debugging, syntax repair                  |
+| `suggest_sql`        | Get SQL completion suggestions | Writing assistance, best practices              |
+| `semantic_search`    | Business process and concept   | Find tables by business terms(invoice, customer)|                             
+|                      | discovery                      |                                                 | 
 ---
 
 ### 🔍 Discovery & Exploration
