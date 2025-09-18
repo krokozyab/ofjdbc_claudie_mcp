@@ -202,18 +202,25 @@ The more you use OFJDBC in DBeaver, the more comprehensive Claude's knowledge of
 This guide shows you how to effectively use each MCP tool with Claude to get the most accurate and helpful responses.
 
 ### 📋 Available Tools Overview
-| Tool                 | Purpose                        | Best Use Cases                                  |
-|----------------------|--------------------------------|-------------------------------------------------|
-| `list_tables`        | Browse database structure      | Discovery, exploration, finding relevant tables |
-| `list_columns`       | Examine table schemas          | Understanding data structure, planning queries  |
-| `search_identifiers` | Smart fuzzy search             | Find tables/columns with typos/abbreviations    |
-| `index_info`         | View table indexes             | Performance optimization, query planning        |
-| `raw_select`         | Execute SELECT queries         | Data analysis, validation, exploration          |
-| `lint_sql`           | Validate SQL syntax            | Code quality, error prevention                  |
-| `fix_sql`            | Auto-correct SQL issues        | Quick debugging, syntax repair                  |
-| `suggest_sql`        | Get SQL completion suggestions | Writing assistance, best practices              |
-| `semantic_search`    | Business process and concept   | Find tables by business terms(invoice, customer)|                             
-|                      | discovery                      |                                                 | 
+You rarely need to call these tools manually—describe your intent in natural language (“show me tables for invoices”, “why does this SQL fail?”) and Claude will invoke the appropriate tool automatically. Direct tool calls remain available for scripted workflows or debugging.
+
+| Tool                      | What It Does                                                                 | Use It When...                                                                 |
+|---------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `list_tables`             | Lists tables/views with schema, type, and remarks                            | You need a quick inventory of objects in a schema                             |
+| `list_columns`            | Returns ordered column metadata (type, nullable, remarks)                    | Designing queries or assessing table shape                                    |
+| `index_info`              | Groups index definitions with column order and uniqueness                     | Planning joins/filters or validating performance assumptions                  |
+| `table_overview`          | Summarises a table (module context, key columns, inferred relationships)      | Getting a one-shot briefing on an unfamiliar table                            |
+| `module_summary`          | Highlights module-prefixed tables, joins, notable fields, sample SQL          | Scoping work around `AP_`, `GL_`, or other functional prefixes                |
+| `list_business_processes` | Lists built-in and custom process codes with friendly titles                  | Advertising available workflows to Claude / picking the right process code    |
+| `business_process_map`    | Breaks a process into stages, key tables, and reports                         | Following procure-to-pay/order-to-cash-style workflows                        |
+| `search_identifiers`      | Fuzzy identifier search with scoring and size-aware limits                    | Hunting tables/columns when names are partial or typo-prone                   |
+| `semantic_search`         | Business-term search with synonyms, module/process awareness                  | Looking for tables via layperson terms ("invoice aging", "hire-to-retire")     |
+| `search_descriptions`     | Full-text search over table/column remarks with phrase support                | Exploring documentation or business definitions stored in metadata            |
+| `raw_select`              | Executes read-only SQL (enforces SELECT + limits) with branded result footer  | Running ad-hoc metadata queries (`SELECT * FROM CACHED_COLUMNS WHERE ...`)     |
+| `lint_sql`                | Performs read-only analysis and returns diagnostics (no automatic changes)    | Validating SQL snippets before executing them elsewhere                       |
+| `fix_sql`                 | Applies limited auto-fixes (e.g., rewrites `LIMIT` to Oracle syntax)          | Quickly patching common Oracle syntax mismatches after linting                |
+| `suggest_sql`             | Provides context-aware skeleton queries and next-action hints                 | Accelerating reporting queries or exploring a dataset                         |
+
 ---
 
 ### 🔍 Discovery & Exploration
