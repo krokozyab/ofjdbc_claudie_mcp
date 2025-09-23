@@ -37,6 +37,10 @@ Your sensitive data remains completely secure as Claude only sees database struc
 
 🎥 **Quick Demo**: Watch a [short video demonstration](https://www.youtube.com/watch?v=acgyR3kB6s8) to see the OFJDBC Claude MCP server in action.
 
+
+
+🎥 **Longer Demo**: Watch a [video demonstration](https://youtu.be/pALBDmEnCm4?si=8wlEohutvBmzNbLG) to see the OFJDBC Claude MCP server in action.
+
 ## Prerequisites
 
 - **Claude Desktop**: Installed and running
