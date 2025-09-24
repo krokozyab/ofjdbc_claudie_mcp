@@ -41,6 +41,8 @@ Your sensitive data remains completely secure as Claude only sees database struc
 
 🎥 **Longer Demo**: Watch a [video demonstration](https://youtu.be/pALBDmEnCm4?si=8wlEohutvBmzNbLG) to see the OFJDBC Claude MCP server in action.
 
+### Simplified version in OpenAI ChatGPT [Oracle Fusion Technical Consultant](https://chatgpt.com/g/g-68cbf632f2288191a3b97833626b792e-oracle-fusion-technical-consultant)
+
 ## Prerequisites
 
 - **Claude Desktop**: Installed and running
