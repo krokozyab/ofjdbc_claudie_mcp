@@ -1,6 +1,6 @@
 # OFJDBC Claude MCP Server
 
-A Claude Desktop MCP server that provides Oracle Fusion metadata context through [OFJDBC](https://github.com/krokozyab/ofjdbc) and [OFARROW](https://github.com/krokozyab/ofarrow) integration.
+A Claude Desktop MCP server that provides Oracle Fusion metadata context through [OFJDBC](https://github.com/krokozyab/ofjdbc) and [OFARROW](https://github.com/krokozyab/ofarrow) integration, or operate independently when a metadata database is provided.
 
 ## Overview
 
