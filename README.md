@@ -25,7 +25,7 @@ Your sensitive data remains completely secure as Claude only sees database struc
 4. **Continuous, Organic Learning:** The more you explore, the deeper Claude’s knowledge grows—metadata expands automatically as you work, powering ever-smarter assistance.
 
 💡 **Want to skip the warm-up?**  
-Message me on [LinkedIn](https://www.linkedin.com/in/sergeyrudenko) — I can share a prebuilt metadata database containing the full Oracle Fusion schema to get you started instantly.
+Message me on [LinkedIn](https://www.linkedin.com/in/srudenko) — I can share a prebuilt metadata database containing the full Oracle Fusion schema to get you started instantly.
 
 ### Important Notes
 
