@@ -4,7 +4,7 @@ A Claude Desktop MCP server that provides Oracle Fusion metadata context through
 
 ## Overview
 
-This server enhances Claude AI's productivity by retrieving Oracle Fusion metadata from a local DuckDB database, enabling intelligent communication about your database structure and queries.
+This server transforms Claude AI from a syntax helper into a documentation-grounded Oracle expert — it retrieves verified Oracle Fusion metadata from your local DuckDB cache, enabling Claude to reason using the same structural context and reference logic as the actual Fusion application, not just correct SQL syntax.
 
 ## Security & Privacy
 
