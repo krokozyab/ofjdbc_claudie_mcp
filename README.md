@@ -19,10 +19,13 @@ Your sensitive data remains completely secure as Claude only sees database struc
 
 ### How It Works
 
-1. **Data Collection**: While you write SELECT statements in DBeaver, OFJDBC automatically saves metadata about accessed tables and views to a local DuckDB database
-2. **Local Storage**: The metadata file is stored in your user folder at `.ofjdbc/metadata.db` (ensuring complete privacy)
-3. **Intelligent Context**: This MCP server feeds that metadata directly into Claude AI, providing context-aware assistance
-4. **Progressive Learning**: The system builds knowledge incrementally as you explore your database
+1. **Effortless Metadata Capture:** As you browse tables or run SELECTs in DBeaver, OFJDBC seamlessly collects rich metadata on every table and view you touch—no extra steps required.
+2. **Private, Local Storage:** All metadata is securely stored in your `.ofjdbc/metadata.db` DuckDB file, right on your machine. No cloud. No outside access. Your privacy is fully protected.
+3. **Smart Context Injection:** This MCP server injects that metadata directly into Claude, giving it real-time, schema-aware insights into your unique Oracle Fusion environment.
+4. **Continuous, Organic Learning:** The more you explore, the deeper Claude’s knowledge grows—metadata expands automatically as you work, powering ever-smarter assistance.
+
+💡 **Want to skip the warm-up?**  
+Message me on [LinkedIn](https://www.linkedin.com/in/sergeyrudenko) — I can share a prebuilt metadata database containing the full Oracle Fusion schema to get you started instantly.
 
 ### Important Notes
 
